@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<head>
+
+	    <!-- Bootstrap CSS -->
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<title> Markdown Previewer </title>
+	
+	
+
+	
+	
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.0/marked.js" integrity="sha512-rXiPAAB1SBl2c36kXGQZjFeG5y5GObuOoCIzSY3q13exK1ByKWQrzv9qu8iensM2vPdOucvhduZL0KyTwPzBmA==" crossorigin="anonymous"></script>
+
+	<script> 
+		console.log(marked(markdownString));
+
+		function updatePreview() {
+			let previewElement = document.getElementById("preview");
+			let editorValue = document.getElementById("editor").value;
+			let markedUpHTML = marked(editorValue);
+			previewElement.innerHTML = markedUpHTML; 
+		}
+		
+
+		function setDefault() {
+			let defaultText = `\
+# Programming is fun
+## Life is good
+[Learn more about stuff](http://google.com)
+<dl>
+  <dt>Definition List</dt>
+	<dd>Does not *work* very well. use HTML <em>tags</em>.</dd>
+</dl>
+				 
+\`Thank you for watching\`
+
+\`\`\`
+function exmapleOf() {
+  return multiLineCodeBlock
+}
+\`\`\`
+
+- Code
+- All 
+- Day
+
+> Learn to be a paimfully average programmer
+
+**Bolded Text**
+
+![some useful alt text](https://th.bing.com/th/id/Rfada92a654b3742d03613f0b8ad286a7?rik=S%2bZeuFR9x%2bjY%2fA&riu=http%3a%2f%2fi.forbesimg.com%2fmedia%2flists%2fcompanies%2fadobe-systems_416x416.jpg&ehk=oFBjp7516mcr0IJPof32isMRbJ9ZAZkP5GBIZpDVYNk%3d&risl=&pid=ImgRaw)
+
+
+
+
+			`;
+			let editorField = document.getElementById("editor");
+			let previewElement = document.getElementById("preview");
+			editorField.value = defaultText
+			previewElement.innerHTML = marked(defaultText);
+		}
+
+	</script>
+
+<body onload="setDefault()"> 
+	<div class="container-fluid bg-danger">
+		<div class="row bg-danger text-white my-3">
+			<div class="col text-center">
+
+		<h1> Markdown Previewer </h1>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 text-center d-flex flex-column bg-success">
+			<h2 class="text-white my-3"> Editor </h2>
+			<div class="form-group flex-grow-1 d-flex flex-column">
+			<textarea class="form-control flex-grow-1" id="editor" onkeyup="updatePreview()"> </textarea>
+		</div>
+	</div>
+
+		<div class="col-md-6 bg-info text-center">
+			<h2 class="text-white my-3"> Preview </h2>
+			<div id="preview"> </div>
+		</div>
+
+	</div>
+</div>
+
+
+
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src= "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"> </script>
+</body> 
+
+
+</head>
+
+</html
